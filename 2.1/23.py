@@ -1,6 +1,7 @@
 import sys
 
 #定义类，因为在递归中数组不会初始化，当开启新一个数字的递归时，上一个数组延续。用类来为每一个对象实例化一个LIST
+#此因数分解可优化为循环模式，参见factors.py
 class Ysfj:
 	def __init__(self):
 		self.l = []
@@ -42,7 +43,6 @@ def euler(n):
 			s += 1
 			print('i:',i)
 	return s
-
 #print(euler(eval(sys.argv[1])))
 #print(yinshifenjie(eval(sys.argv[1])))
 #yinshifenjie(eval(sys.argv[1]))
