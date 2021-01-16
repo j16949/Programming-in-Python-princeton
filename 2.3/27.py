@@ -5,27 +5,28 @@
 import sys
 import stddraw
 import stdrandom
+import math
 
 # Accept integer n as a command-line argument. Play chaos game on
 # triangle to produce Sierpinski triangle of n points.
 
+def sier(n,xl,yl,xr,yr,xm,ym):
+	if n == 0:return
+
+	stddraw.line(xl,yl,xr,yr)
+	stddraw.line(xl,yl,xm,ym)
+	stddraw.line(xr,yr,xm,ym)
+
+	sier(n-1,xl,yl,xm,yr,(xl+xm)/2,(yl+ym)/2)
+	sier(n-1,xm,yl,xr,yr,(xr+xm)/2,(yr+ym)/2)
+	sier(n-1,(xl+xm)/2,(yl+ym)/2,(xr+xm)/2,(yr+ym)/2,xm,ym)
 
 def main():
-    n = int(sys.argv[1])
-
-    cx = [0.000, 1.000, 0.500]
-    cy = [0.000, 0.000, 0.866]
-
-    x = 0.0
-    y = 0.0
-
-    stddraw.setPenRadius(0.0)
-    for i in range(n):
-        r = stdrandom.uniformInt(0, 3)
-        x = (x + cx[r]) / 2.0
-        y = (y + cy[r]) / 2.0
-        stddraw.point(x, y)
-    stddraw.show()
+	n = int(sys.argv[1])
+	stddraw.setXscale(-0.1,1.1)
+	stddraw.setYscale(-0.1,1.1)
+	sier(n,0,0,1,0,0.5,math.sin(math.pi/3))
+	stddraw.show()
 
 if __name__ == '__main__':
     main()

@@ -70,8 +70,9 @@ def main():
     WIDTH  = 200       # Width of largest disc
     HEIGHT = 15        # Height of each disc
 
-    n = int(sys.argv[1])   # number of discs
-    
+    #n = int(sys.argv[1])   # number of discs
+    n = 3
+
     # Set size of window and sale
     stddraw.setCanvasSize(4*WIDTH, (n+3)*HEIGHT)
     stddraw.setXscale(-1, 3)
