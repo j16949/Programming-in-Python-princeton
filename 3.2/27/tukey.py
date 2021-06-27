@@ -8,7 +8,7 @@ def compute(a=[]):
 	b.append(stdstats.stddev(a))
 	b.append(a[int(len(a)/10)])
 	b.append(a[int(len(a)*9/10)])
-	print(b)
+	#print(b)
 	return b
 
 def TukeyPlot(b=[]):
@@ -21,8 +21,14 @@ def TukeyPlot(b=[]):
 	y = [hy,hy,ly,ly]
 	stddraw.polygon(x,y)
 
-c = [1,2,3,4,5,6,7,8,9]
-c1 = [3,3,3,4,5,7,7,7,7]
-TukeyPlot(compute(c))
-stddraw.show()
+def TP(a=[]):
+	return TukeyPlot(compute(a))
 
+def main():
+	c = [1,2,3,4,5,6,7,8,9]
+	c1 = [3,3,3,4,5,7,7,7,7]
+	TP(c)
+	stddraw.show()
+
+if __name__=='__main__':
+	main()
