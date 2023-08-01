@@ -4,7 +4,7 @@ import copy
 class ListCopy:
     
     def __init__(self,l):
-        self._l = copy.deepcopy(l)
+        self._l = l[:]
 
     def __str__(self):
         return str(self._l)
